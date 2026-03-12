@@ -1,13 +1,20 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
+@import '../styles/variable';
+@import '../styles/common';
+@import '../styles/typography';
+@import '../styles/icon-fonts';
+@import '../styles/button';
 
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-sans);
+  --font-sans: var(--font-calendas-local);
+  --font-calendas: var(--font-calendas-local);
+  --font-azeret-mono: var(--font-azeret-mono-local);
   --font-mono: var(--font-geist-mono);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
@@ -121,9 +128,54 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-calendas;
   }
   html {
     @apply font-sans;
   }
+}
+
+
+.hero-parallax {
+  position: relative;
+  min-height: 200vh;
+  overflow-x: clip;
+  background: #111b29;
+  text-align: center;
+}
+
+.hero-parallax .scrollDist {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-parallax__stage {
+  position: sticky;
+  top: 0;
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  align-items: stretch;
+  justify-content: stretch;
+}
+
+.hero-parallax__frame {
+  position: relative;
+  width: 100vw;
+  height: 100%;
+  overflow: hidden;
+  background: #fff;
+}
+
+.hero-parallax svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-parallax .arrow {
+  transform-box: fill-box;
+  transform-origin: center;
 }
